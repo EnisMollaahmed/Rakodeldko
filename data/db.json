@@ -1,0 +1,63 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Leanne Graham",
+      "username": "Bret",
+      "email": "Sincere@april.biz",
+      "password": "B2LcyUIy",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "name": "Ervin Howell",
+      "username": "Antonette",
+      "email": "Shanna@melissa.tv",
+      "password": "xdOIfoGc",
+      "role": "user"
+    },
+    {
+      "id": "3",
+      "name": "Clementine Bauch",
+      "username": "Samantha",
+      "email": "Nathan@yesenia.net",
+      "password": "LzqB7czR",
+      "role": "user"
+    },
+    {
+      "id": "32c9",
+      "name": "Krasimir Todorov",
+      "username": "Sandooo4",
+      "email": "krasiT@gmail.com",
+      "password": "Bira@1234"
+    }
+  ],
+  "product": [
+    {
+      "id": "11",
+      "name": "Tibetan Agate Men Bracelet",
+      "image": "https://i.etsystatic.com/33997438/r/il/04fa79/6013830632/il_794xN.6013830632_5j1c.jpg",
+      "description": "Chakra Healing Tibetan Agate Bracelets can bring some strength and zen into your life with a fresh clean modern look and a natural feel.",
+      "tags": [
+        "chakra",
+        "men",
+        "bracet"
+      ],
+      "price": 20,
+      "userId": "2"
+    },
+    {
+      "id": "12",
+      "name": "Retro Comfort Woman In Science Shirt",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079474/il_794xN.4986079474_mtos.jpg",
+      "description": "Retro Comfort Woman In Science Shirt, Science Shirt, Preppy Aesthetic Shirt, Scientist Sweatshirts,Girl Scientist Shirt, Gift for Scientist,",
+      "tags": [
+        "science",
+        "women",
+        "t-shirt"
+      ],
+      "price": 20,
+      "userId": "3"
+    }
+  ]
+}
