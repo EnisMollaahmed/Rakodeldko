@@ -114,7 +114,7 @@ export default function Register(){
                 disabled:watchPassword === ""
             })} placeholder='Repet Password' className='inp' autoComplete='new-password'/>
             <p>{errors['repeat-password']?.message}</p>
-            <button type='submit'>Submit</button>
+            <button type='submit' disabled={!(isDirty || isValid) || isSubmitting}>Submit</button>
         </form>
     );
 }

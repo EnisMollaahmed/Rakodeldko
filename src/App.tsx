@@ -4,6 +4,10 @@ import Home from './Components/Home';
 import Main from './Components/Main';
 import Register, {loader as registerLoader} from './Components/Register';
 import LogIn, {loader as loginLoader} from './Components/LogIn';
+import Shop, { loader as shopLoader } from './Components/Shop';
+import ProductPage, { loader as productPageLoader } from './Components/ProductPage';
+import Blogs, {loader as blogsLoader} from './Components/Blogs';
+import BlogPage, {loader as blogPageLoader} from './Components/BlogPage';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +27,26 @@ const router = createBrowserRouter([
         path:"log-in",
         element:<LogIn />,
         loader:loginLoader
+      },
+      {
+        path:"shop",
+        element:<Shop />,
+        loader:shopLoader
+      },
+      {
+        path:"/product/:productId",
+        element:<ProductPage />,
+        loader:productPageLoader
+      },
+      {
+        path:"/blogs",
+        element:<Blogs/>,
+        loader:blogsLoader
+      },
+      {
+        path:"/blog/:blogId",
+        element:<BlogPage/>,
+        loader:blogPageLoader
       }
     ]
   }

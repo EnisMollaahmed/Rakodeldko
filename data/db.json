@@ -32,9 +32,9 @@
       "password": "Bira@1234"
     }
   ],
-  "product": [
+  "products": [
     {
-      "id": "11",
+      "id": "1",
       "name": "Tibetan Agate Men Bracelet",
       "image": "https://i.etsystatic.com/33997438/r/il/04fa79/6013830632/il_794xN.6013830632_5j1c.jpg",
       "description": "Chakra Healing Tibetan Agate Bracelets can bring some strength and zen into your life with a fresh clean modern look and a natural feel.",
@@ -44,10 +44,11 @@
         "bracet"
       ],
       "price": 20,
-      "userId": "2"
+      "userId": "2",
+      "post":1718707210910
     },
     {
-      "id": "12",
+      "id": "2",
       "name": "Retro Comfort Woman In Science Shirt",
       "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079474/il_794xN.4986079474_mtos.jpg",
       "description": "Retro Comfort Woman In Science Shirt, Science Shirt, Preppy Aesthetic Shirt, Scientist Sweatshirts,Girl Scientist Shirt, Gift for Scientist,",
@@ -57,7 +58,269 @@
         "t-shirt"
       ],
       "price": 20,
-      "userId": "3"
+      "userId": "3",
+      "post":1718707211915
+    },{
+      "id": "3",
+      "name": "Classic Geek Gal Tee",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079475/il_794xN.4986079475_mtos.jpg",
+      "description": "Classic Geek Gal Tee, Nerd Shirt, Preppy Aesthetic Shirt, Science Enthusiast Sweatshirt, Girl Nerd Shirt, Gift for Geek,",
+      "tags": ["nerd", "women", "t-shirt"],
+      "price": 22,
+      "userId": "3",
+      "post": 1718707211916
+    },
+    {
+      "id": "4",
+      "name": "Modern Tech Woman Top",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079476/il_794xN.4986079476_mtos.jpg",
+      "description": "Modern Tech Woman Top, Technology Shirt, Chic Aesthetic Shirt, IT Professional Sweatshirts, Girl Programmer Shirt, Gift for Techie,",
+      "tags": ["technology", "women", "t-shirt"],
+      "price": 23,
+      "userId": "3",
+      "post": 1718707211917
+    },
+    {
+      "id": "5",
+      "name": "Astrology Aficionado Tee",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079489/il_794xN.4986079489_mtos.jpg",
+      "description": "Astrology Aficionado Tee, Zodiac Shirt, Cosmic Aesthetic Shirt, Astrologer Sweatshirts, Star Sign Shirt, Gift for Astrologer,",
+      "tags": ["astrology", "zodiac", "t-shirt"],
+      "price": 24,
+      "userId": "3",
+      "post": 1718707211920
+    },
+    {
+      "id": "6",
+      "name": "Quantum Queen Tee",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079490/il_794xN.4986079490_mtos.jpg",
+      "description": "Quantum Queen Tee, Physics Shirt, Chic Aesthetic Shirt, Quantum Physics Sweatshirts, Science Queen Shirt, Gift for Physicist,",
+      "tags": ["physics", "quantum", "t-shirt"],
+      "price": 25,
+      "userId": "3",
+      "post": 1718707211921
+    },
+    {
+      "id": "7",
+      "name": "Galactic Geek Tee",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079491/il_794xN.4986079491_mtos.jpg",
+      "description": "Galactic Geek Tee, Space Shirt, Cosmic Aesthetic Shirt, Astronomer Sweatshirts, Space Explorer Shirt, Gift for Astronomer,",
+      "tags": ["space", "galaxy", "t-shirt"],
+      "price": 26,
+      "userId": "3",
+      "post": 1718707211922
+    },
+    {
+      "id": "8",
+      "name": "Vintage Astronaut T-Shirt",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079475/il_794xN.4986079475_mtos.jpg",
+      "description": "Vintage Astronaut T-Shirt, Space Shirt, Retro Aesthetic Tee, Space Enthusiast Gift,",
+      "tags": ["space", "astronaut", "t-shirt"],
+      "price": 25,
+      "userId": "4",
+      "post": 1718707211920
+    },
+    {
+      "id": "9",
+      "name": "Botanist Graphic Tee",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079476/il_794xN.4986079476_mtos.jpg",
+      "description": "Botanist Graphic Tee, Plant Lover Shirt, Botanical Art Shirt, Nature Aesthetic Tee, Gift for Botanist,",
+      "tags": ["botany", "plants", "t-shirt"],
+      "price": 22,
+      "userId": "5",
+      "post": 1718707211921
+    },
+    {
+      "id": "10",
+      "name": "Chemistry Pun Sweatshirt",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079477/il_794xN.4986079477_mtos.jpg",
+      "description": "Chemistry Pun Sweatshirt, Funny Science Shirt, Chemist Hoodie, Nerdy Gift,",
+      "tags": ["chemistry", "funny", "sweatshirt"],
+      "price": 28,
+      "userId": "6",
+      "post": 1718707211922
+    },
+    {
+      "id": "11",
+      "name": "Physics Diagram T-Shirt",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079478/il_794xN.4986079478_mtos.jpg",
+      "description": "Physics Diagram T-Shirt, Science Graphic Tee, Physics Lover Shirt, Educational Gift,",
+      "tags": ["physics", "diagram", "t-shirt"],
+      "price": 24,
+      "userId": "7",
+      "post": 1718707211923
+    },
+    {
+      "id": "12",
+      "name": "Geology Rocks Shirt",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079479/il_794xN.4986079479_mtos.jpg",
+      "description": "Geology Rocks Shirt, Earth Science Tee, Rock Lover Gift, Geologist T-Shirt,",
+      "tags": ["geology", "rocks", "t-shirt"],
+      "price": 23,
+      "userId": "8",
+      "post": 1718707211924
+    },
+    {
+      "id": "13",
+      "name": "Math Equations Hoodie",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079480/il_794xN.4986079480_mtos.jpg",
+      "description": "Math Equations Hoodie, Mathematics Sweatshirt, Nerdy Math Gift, Mathematician Apparel,",
+      "tags": ["math", "equations", "hoodie"],
+      "price": 30,
+      "userId": "9",
+      "post": 1718707211925
+    },
+    {
+      "id": "14",
+      "name": "Biology Nerd T-Shirt",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079481/il_794xN.4986079481_mtos.jpg",
+      "description": "Biology Nerd T-Shirt, Science Lover Tee, Biology Major Gift, Educational Shirt,",
+      "tags": ["biology", "nerd", "t-shirt"],
+      "price": 22,
+      "userId": "10",
+      "post": 1718707211926
+    },
+    {
+      "id": "15",
+      "name": "Retro Scientist Hoodie",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079482/il_794xN.4986079482_mtos.jpg",
+      "description": "Retro Scientist Hoodie, Vintage Science Sweatshirt, Scientist Gift, Preppy Aesthetic,",
+      "tags": ["scientist", "retro", "hoodie"],
+      "price": 28,
+      "userId": "11",
+      "post": 1718707211927
+    },
+    {
+      "id": "16",
+      "name": "Engineer Blueprint Tee",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079483/il_794xN.4986079483_mtos.jpg",
+      "description": "Engineer Blueprint Tee, Engineering Shirt, Technical Drawing T-Shirt, Engineer Gift,",
+      "tags": ["engineering", "blueprint", "t-shirt"],
+      "price": 26,
+      "userId": "12",
+      "post": 1718707211928
+    },
+    {
+      "id": "17",
+      "name": "Microbiologist Lab Coat",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079484/il_794xN.4986079484_mtos.jpg",
+      "description": "Microbiologist Lab Coat, Science Lab Apparel, Microbiology Enthusiast Gift, Scientist Lab Coat,",
+      "tags": ["microbiology", "lab coat", "scientist"],
+      "price": 35,
+      "userId": "13",
+      "post": 1718707211929
+    },
+    {
+      "id": "18",
+      "name": "Data Scientist Tee",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079485/il_794xN.4986079485_mtos.jpg",
+      "description": "Data Scientist Tee, Data Analysis Shirt, Coding Enthusiast Gift, Tech Shirt,",
+      "tags": ["data", "coding", "t-shirt"],
+      "price": 27,
+      "userId": "14",
+      "post": 1718707211930
+    },
+    {
+      "id": "19",
+      "name": "Zoologist Animal Print Shirt",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079486/il_794xN.4986079486_mtos.jpg",
+      "description": "Zoologist Animal Print Shirt, Wildlife Lover Tee, Zoo Enthusiast Gift, Zoology Apparel,",
+      "tags": ["zoology", "animals", "t-shirt"],
+      "price": 24,
+      "userId": "15",
+      "post": 1718707211931
+    },
+    {
+      "id": "20",
+      "name": "Marine Biologist Hoodie",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079487/il_794xN.4986079487_mtos.jpg",
+      "description": "Marine Biologist Hoodie, Ocean Lover Sweatshirt, Marine Science Gift, Marine Biology Apparel,",
+      "tags": ["marine biology", "ocean", "hoodie"],
+      "price": 29,
+      "userId": "16",
+      "post": 1718707211932
+    },
+    {
+      "id": "21",
+      "name": "Astronomy Star Map Tee",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079488/il_794xN.4986079488_mtos.jpg",
+      "description": "Astronomy Star Map Tee, Constellation Graphic Shirt, Star Gazing Gift, Space Enthusiast Apparel,",
+      "tags": ["astronomy", "stars", "t-shirt"],
+      "price": 26,
+      "userId": "17",
+      "post": 1718707211933
+    },
+    {
+      "id": "22",
+      "name": "Environmental Scientist Shirt",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079489/il_794xN.4986079489_mtos.jpg",
+      "description": "Environmental Scientist Shirt, Eco-Friendly Apparel, Environmental Science Gift, Green Living Tee,",
+      "tags": ["environmental science", "eco-friendly", "t-shirt"],
+      "price": 25,
+      "userId": "18",
+      "post": 1718707211934
+    },
+    {
+      "id": "23",
+      "name": "Genetics DNA Sweatshirt",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079490/il_794xN.4986079490_mtos.jpg",
+      "description": "Genetics DNA Sweatshirt, Geneticist Hoodie, Science DNA Shirt, Biologist Gift,",
+      "tags": ["genetics", "DNA", "sweatshirt"],
+      "price": 28,
+      "userId": "19",
+      "post": 1718707211935
+    },
+    {
+      "id": "24",
+      "name": "Paleontologist Fossil Tee",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079491/il_794xN.4986079491_mtos.jpg",
+      "description": "Paleontologist Fossil Tee, Dinosaur Lover Shirt, Fossil Enthusiast Gift, Paleontology Apparel,",
+      "tags": ["paleontology", "fossils", "t-shirt"],
+      "price": 24,
+      "userId": "20",
+      "post": 1718707211936
+    },
+    {
+      "id": "25",
+      "name": "Meteorologist Weather Shirt",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079492/il_794xN.4986079492_mtos.jpg",
+      "description": "Meteorologist Weather Shirt, Climate Science Tee, Weather Enthusiast Gift, Meteorology Apparel,",
+      "tags": ["meteorology", "weather", "t-shirt"],
+      "price": 23,
+      "userId": "21",
+      "post": 1718707211937
+    },
+    {
+      "id": "26",
+      "name": "Ecologist Wildlife Hoodie",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079493/il_794xN.4986079493_mtos.jpg",
+      "description": "Ecologist Wildlife Hoodie, Nature Lover Sweatshirt, Ecology Gift, Wildlife Conservation Apparel,",
+      "tags": ["ecology", "wildlife", "hoodie"],
+      "price": 29,
+      "userId": "22",
+      "post": 1718707211938
+    },
+    {
+      "id": "27",
+      "name": "Anthropologist Culture Shirt",
+      "image": "https://i.etsystatic.com/37789600/r/il/37f43d/4986079494/il_794xN.4986079494_mtos.jpg",
+      "description": "Anthropologist Culture Shirt, Cultural Studies Tee, Anthropology Enthusiast Gift, Cultural Heritage Apparel,",
+      "tags": ["anthropology", "culture", "t-shirt"],
+      "price": 25,
+      "userId": "23",
+      "post": 1718707211939
+    }
+  ],
+  "blogs":[
+    {
+      "id":"111",
+      "title":"Nunc lectus nisl",
+      "image":"https://www.anikasdiylife.com/wp-content/uploads/2020/12/wood-gifts-for-men-Anikas-DIY-Life-600x600-1.jpg",
+      "shortDescription":"Curabitur eget pellentesque nisl. Phasellus sit amet velit laoreet, accumsan ipsum non, convallis leo.",
+      "article":"Pellentesque laoreet augue vel ullamcorper luctus. Mauris eget commodo nunc. In risus ex, volutpat consectetur elementum sed, hendrerit at velit. Sed molestie maximus placerat. Mauris tempus urna sem, eget pellentesque elit pulvinar non. Curabitur quis lacus nec erat blandit tempus sed eget sem. Donec ullamcorper ut felis quis iaculis. Fusce in neque elementum, placerat enim vel, eleifend turpis. Proin tincidunt viverra sem ac porta. Morbi eu est quam.",
+      "post":1609459200000,
+      "tags":["men", "gift", "decoration"],
+      "ownerId":"2"
     }
   ]
 }

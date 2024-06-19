@@ -1,7 +1,6 @@
 import React from "react";
 import CategoryWidget from "./CategoryWidget";
 import categories from "../categories-data";
-import {User} from "../services/clients-api"
 
 type Category = {name:string, image:string};
 

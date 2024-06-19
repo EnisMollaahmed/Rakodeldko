@@ -25,6 +25,8 @@ export default function Main(){
                 {item && <p>{user?.name}</p>}
                 <nav className='nav-container'>
                     <NavLink className={linkStyling} to='/'>Home</NavLink>
+                    <NavLink className={linkStyling} to='/shop'>Shop</NavLink>
+                    <NavLink className={linkStyling} to='/blogs'>Blogs</NavLink>
                     {!item && <NavLink className={linkStyling} to='/log-in'>Log In</NavLink>}
                     {!item && <NavLink className={linkStyling} to='/register'>Register</NavLink>}
                 </nav>
