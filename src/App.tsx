@@ -8,6 +8,8 @@ import Shop, { loader as shopLoader } from './Components/Shop';
 import ProductPage, { loader as productPageLoader } from './Components/ProductPage';
 import Blogs, {loader as blogsLoader} from './Components/Blogs';
 import BlogPage, {loader as blogPageLoader} from './Components/BlogPage';
+import MyBlogs, {loader as myBlogsLoader} from './Components/MyBlogs';
+import MyProducts, {loader as myProductsLoader} from './Components/MyProducts';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +49,16 @@ const router = createBrowserRouter([
         path:"/blog/:blogId",
         element:<BlogPage/>,
         loader:blogPageLoader
+      },
+      {
+        path:"/my-blogs",
+        element:<MyBlogs />,
+        loader:myBlogsLoader
+      },
+      {
+        path:"/my-products",
+        element:<MyProducts />,
+        loader:myProductsLoader
       }
     ]
   }

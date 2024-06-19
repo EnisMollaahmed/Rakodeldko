@@ -1,7 +1,16 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
 
-export default function BlogWidget({id, image ,title, shortDescription, post}:{id:string, image:string, title:string, shortDescription:string, post:number}){
+interface BlogWidgetInfo{
+    id:string;
+    image:string;
+    title:string;
+    shortDescription:string;
+    post:number;
+    isOwned?:boolean;
+}
+
+export default function BlogWidget({id, image ,title, shortDescription, post, isOwned = false}:BlogWidgetInfo){
     const navigate = useNavigate();
     const date = new Date(post);
     return(
@@ -11,6 +20,7 @@ export default function BlogWidget({id, image ,title, shortDescription, post}:{i
             <p className='short-description'>{shortDescription}</p>
             <p className='post-date'>{date.toString()}</p>
             <button type='button' className='view-btn' onClick={()=>navigate(`/blog/${id}`)}>View</button>
+            {isOwned && <button className='delete-btn'>Delete</button>}
         </section>
     );
 }

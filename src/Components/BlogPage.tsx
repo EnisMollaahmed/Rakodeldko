@@ -27,7 +27,7 @@ export default function BlogPage(){
                     })
                 }
             </section>
-            <p className='post-info'>{`Posted by ${authorNickname} on ${date.getDay()}.${date.getMonth() + 1}.${date.getFullYear()}`}</p>
+            <p className='post-info'>{`Posted by ${authorNickname} on ${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`}</p>
         </section>
     );
 }

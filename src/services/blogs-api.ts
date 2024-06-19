@@ -47,6 +47,16 @@ class BlogApi{
         const blog:Blog = await data.json();
         return blog;
     }
+
+    async readFilteredBlogs(ownerId:string):Promise<Blog[]>{
+        const data:Response = await fetch(`${blogsEndpoint}?ownerId=${ownerId}`);
+        if(!data.ok){
+            throw Error('Error while reading blogs in readFilteredBlogs method');
+        }
+        const blogs:Blog[] = await data.json();
+        return blogs;
+    }
+
     async createBlog(blog:Blog):Promise<Response>{
         const data:Response = await fetch(blogsEndpoint, {
             method:"POST",

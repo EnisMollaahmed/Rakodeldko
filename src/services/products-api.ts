@@ -40,6 +40,15 @@ class ProductDto{
         return {products, nextPage};
     }
 
+    async readFilteredData(userId:string):Promise<Product[]>{
+        const data = await fetch(`${productEndpoint}?userId=${userId}`);
+        if(!data.ok){
+            throw Error('Error while reading products in ProductDto readFilteredData method');
+        }
+        const products:Product[] = await data.json();
+        return products;
+    }
+
     async createProduct(product:Product){
         const data= await fetch(productEndpoint, {
             method:"POST",

@@ -29,6 +29,8 @@ export default function Main(){
                     <NavLink className={linkStyling} to='/blogs'>Blogs</NavLink>
                     {!item && <NavLink className={linkStyling} to='/log-in'>Log In</NavLink>}
                     {!item && <NavLink className={linkStyling} to='/register'>Register</NavLink>}
+                    {item && <NavLink className={linkStyling} to='/my-products'>My Products</NavLink>}
+                    {item && <NavLink className={linkStyling} to='/my-blogs'>My Blogs</NavLink>}
                 </nav>
             </header>
             <main className='main-container'>
