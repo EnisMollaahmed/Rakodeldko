@@ -10,6 +10,7 @@ import Blogs, {loader as blogsLoader} from './Components/Blogs';
 import BlogPage, {loader as blogPageLoader} from './Components/BlogPage';
 import MyBlogs, {loader as myBlogsLoader} from './Components/MyBlogs';
 import MyProducts, {loader as myProductsLoader} from './Components/MyProducts';
+import AddNewBlog, {loader as addEditBlogLoader} from './Components/AddNewBlogs';
 
 const router = createBrowserRouter([
   {
@@ -59,7 +60,13 @@ const router = createBrowserRouter([
         path:"/my-products",
         element:<MyProducts />,
         loader:myProductsLoader
-      }
+      },
+      {
+        path:"/man-blog/:type/:blogId",
+        element:<AddNewBlog/>,
+        loader:addEditBlogLoader
+      },
+      
     ]
   }
 ]);

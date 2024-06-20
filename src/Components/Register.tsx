@@ -29,7 +29,7 @@ export default function Register(){
 
     const onSubmission = (data:UserData) =>{
         console.log(data);
-        const user = new User(data.name, data.username, data.email, data.password);
+        const user = new User(data.name, data.username, data.email, data.password, 'user');
         userDto.createUser(user);
         sessionStorage.setItem('act-user',JSON.stringify(user));
         navigate('..',{replace:true})

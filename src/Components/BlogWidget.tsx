@@ -21,6 +21,7 @@ export default function BlogWidget({id, image ,title, shortDescription, post, is
             <p className='post-date'>{date.toString()}</p>
             <button type='button' className='view-btn' onClick={()=>navigate(`/blog/${id}`)}>View</button>
             {isOwned && <button className='delete-btn'>Delete</button>}
+            {isOwned && <button className='edit-btn' onClick={()=>navigate(`/man-blog/edit/${id}`)}>Edit</button>}
         </section>
     );
 }

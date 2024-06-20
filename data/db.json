@@ -29,7 +29,8 @@
       "name": "Krasimir Todorov",
       "username": "Sandooo4",
       "email": "krasiT@gmail.com",
-      "password": "Bira@1234"
+      "password": "Bira@1234",
+      "role":"user"
     }
   ],
   "products": [
