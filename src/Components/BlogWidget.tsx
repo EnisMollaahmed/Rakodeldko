@@ -8,9 +8,10 @@ interface BlogWidgetInfo{
     shortDescription:string;
     post:number;
     isOwned?:boolean;
+    isAdmin?:boolean
 }
 
-export default function BlogWidget({id, image ,title, shortDescription, post, isOwned = false}:BlogWidgetInfo){
+export default function BlogWidget({id, image ,title, shortDescription, post, isOwned = false, isAdmin = false}:BlogWidgetInfo){
     const navigate = useNavigate();
     const date = new Date(post);
     return(
@@ -20,7 +21,7 @@ export default function BlogWidget({id, image ,title, shortDescription, post, is
             <p className='short-description'>{shortDescription}</p>
             <p className='post-date'>{date.toString()}</p>
             <button type='button' className='view-btn' onClick={()=>navigate(`/blog/${id}`)}>View</button>
-            {isOwned && <button className='delete-btn'>Delete</button>}
+            {(isOwned || isAdmin) && <button className='delete-btn'>Delete</button>}
             {isOwned && <button className='edit-btn' onClick={()=>navigate(`/man-blog/edit/${id}`)}>Edit</button>}
         </section>
     );

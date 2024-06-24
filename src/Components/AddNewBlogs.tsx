@@ -30,7 +30,8 @@ export default function AddNewBlog(){
             shortDescription:blog? blog.shortDescription : "",
             article:blog?blog.article:"",
             tags:blog ? blog.tags.join(" ") : ""
-        }
+        },
+        mode:'onBlur'
     });
     const { errors } = formState;
 

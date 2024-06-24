@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import blogsApi, {Blog} from "../services/blogs-api";
 import { useLoaderData } from "react-router-dom";
 import BlogWidget from "./BlogWidget";
+import {User} from "../services/clients-api";
 
-export async function loader():Promise<{blogs:Blog[], nextPage:number|null}>{
+export async function loader():Promise<{blogs:Blog[], nextPage:number|null, user:User|undefined}>{
     const {blogs, nextPage}:{blogs:Blog[], nextPage:number|null} = await blogsApi.readSpecificCountBlogs(1);
-    return {blogs, nextPage};
+    const item:string | null = sessionStorage.getItem('act-user');
+    const user:User|undefined = item ? JSON.parse(item) : undefined;
+    return {blogs, nextPage, user};
 }
 
 export default function Blogs(){
-    const {blogs, nextPage} = useLoaderData() as {blogs:Blog[], nextPage:number|null};
+    const {blogs, nextPage, user} = useLoaderData() as {blogs:Blog[], nextPage:number|null, user: User | undefined};
     const [items, setItems] = useState<Blog[]>(blogs);
     const [pageNum, setPageNum] = useState<number|null>(nextPage);
     const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -29,7 +32,7 @@ export default function Blogs(){
         <section className='blogsContainer'>
             {
                 items.map((item:Blog)=>{
-                    return (item.id && item.post) && <BlogWidget key={item.id} id={item.id} image={item.image} title={item.title} shortDescription={item.shortDescription} post={item.post}/>;
+                    return (item.id && item.post) && <BlogWidget key={item.id} id={item.id} image={item.image} title={item.title} shortDescription={item.shortDescription} post={item.post} isAdmin={user?.role === 'admin'}/>;
                 })
             }
             <button type='button' className='load-btn' hidden={pageNum === null} disabled={isLoading} onClick={handleLoadClick}>{isLoading ? 'Loading..':'Load More'}</button>

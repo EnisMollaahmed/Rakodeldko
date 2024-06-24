@@ -1,7 +1,7 @@
 import React from 'react';
 import productApi, { Product } from '../services/products-api';
 import { User } from '../services/clients-api';
-import { useLoaderData, Form } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import ProductWidget from './ProductWidget';
 
 export async function loader({params}:any):Promise<{products:Product[]}>{
@@ -19,13 +19,12 @@ export async function loader({params}:any):Promise<{products:Product[]}>{
 
 export default function MyProducts(){
     const {products} = useLoaderData() as {products:Product[]};
+    const navigate = useNavigate();
     return (
         <section className='products-container'>
-            <Form className='add-prod'>
-                <button className='add-prod-btn'>Add product</button>
-            </Form>
+            <button className='add-prod-btn' type='button' onClick={()=>navigate('/man-product/add/x')}>Add product</button>
             {
-                products.length > 0 ? products.map((product:Product)=>{ return product.id && <ProductWidget name={product.name} image={product.image} id={product.id} isOwned={true}/>}) : <p>There is no any elements</p>
+                products.length > 0 ? products.map((product:Product)=>{ return product.id && <ProductWidget name={product.name} image={product.image} id={product.id} isOwned={true}/>}) : <p>There is no any products</p>
             }
         </section>
     );

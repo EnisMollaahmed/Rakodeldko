@@ -323,5 +323,117 @@
       "tags":["men", "gift", "decoration"],
       "ownerId":"2"
     }
+  ],
+  "orders":[
+    {
+        "id": "order001",
+        "clientId": "client001",
+        "craftsmanId": "craftsmanA",
+        "productName": "Wooden Table",
+        "quantity": 5,
+        "totalPrice": 500.00,
+        "paymentMethod": "card",
+        "status": "pending",
+        "address": "123 Maple Street, Springfield"
+    },
+    {
+        "id": "order002",
+        "clientId": "client002",
+        "craftsmanId": "craftsmanB",
+        "productName": "Ceramic Vase",
+        "quantity": 2,
+        "totalPrice": 100.00,
+        "paymentMethod": "cash",
+        "status": "finished",
+        "address": "456 Oak Avenue, Metropolis"
+    },
+    {
+        "id": "order003",
+        "clientId": "client003",
+        "craftsmanId": "craftsmanC",
+        "productName": "Leather Wallet",
+        "quantity": 10,
+        "totalPrice": 200.00,
+        "paymentMethod": "card",
+        "status": "pending",
+        "address": "789 Birch Road, Gotham"
+    },
+    {
+        "id": "order004",
+        "clientId": "client004",
+        "craftsmanId": "craftsmanD",
+        "productName": "Handmade Scarf",
+        "quantity": 3,
+        "totalPrice": 75.00,
+        "paymentMethod": "cash",
+        "status": "finished",
+        "address": "101 Pine Lane, Star City"
+    },
+    {
+        "id": "order005",
+        "clientId": "client005",
+        "craftsmanId": "craftsmanE",
+        "productName": "Iron Lamp",
+        "quantity": 8,
+        "totalPrice": 320.00,
+        "paymentMethod": "card",
+        "status": "pending",
+        "address": "202 Cedar Street, Central City"
+    },
+    {
+        "id": "order006",
+        "clientId": "client006",
+        "craftsmanId": "craftsmanF",
+        "productName": "Glass Bowl",
+        "quantity": 4,
+        "totalPrice": 80.00,
+        "paymentMethod": "cash",
+        "status": "finished",
+        "address": "303 Elm Avenue, Coast City"
+    },
+    {
+        "id": "order007",
+        "clientId": "client007",
+        "craftsmanId": "craftsmanG",
+        "productName": "Wool Blanket",
+        "quantity": 6,
+        "totalPrice": 300.00,
+        "paymentMethod": "card",
+        "status": "pending",
+        "address": "404 Willow Road, Smallville"
+    },
+    {
+        "id": "order008",
+        "clientId": "client008",
+        "craftsmanId": "craftsmanH",
+        "productName": "Porcelain Mug",
+        "quantity": 7,
+        "totalPrice": 140.00,
+        "paymentMethod": "cash",
+        "status": "finished",
+        "address": "505 Spruce Lane, Blüdhaven"
+    },
+    {
+        "id": "order009",
+        "clientId": "client009",
+        "craftsmanId": "craftsmanI",
+        "productName": "Silk Pillow",
+        "quantity": 1,
+        "totalPrice": 25.00,
+        "paymentMethod": "card",
+        "status": "pending",
+        "address": "606 Fir Street, National City"
+    },
+    {
+        "id": "order010",
+        "clientId": "client010",
+        "craftsmanId": "craftsmanJ",
+        "productName": "Bamboo Chair",
+        "quantity": 9,
+        "totalPrice": 450.00,
+        "paymentMethod": "cash",
+        "status": "finished",
+        "address": "707 Redwood Avenue, Keystone City"
+    }
   ]
 }

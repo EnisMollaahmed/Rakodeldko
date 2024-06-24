@@ -31,6 +31,7 @@ export default function Main(){
                     {!item && <NavLink className={linkStyling} to='/register'>Register</NavLink>}
                     {item && <NavLink className={linkStyling} to='/my-products'>My Products</NavLink>}
                     {item && <NavLink className={linkStyling} to='/my-blogs'>My Blogs</NavLink>}
+                    {item && <NavLink className={linkStyling} to='/my-profile'>My Profile</NavLink>}
                 </nav>
             </header>
             <main className='main-container'>

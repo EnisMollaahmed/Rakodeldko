@@ -32,7 +32,8 @@ export default function AddNewProducts(){
             description:product? product.description : "",
             tags: product ? product.tags.join(" ") : "",
             price: product ? product.price:0
-        }
+        },
+        mode:'onBlur'
     });
     const { errors } = formState;
 

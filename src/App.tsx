@@ -11,6 +11,12 @@ import BlogPage, {loader as blogPageLoader} from './Components/BlogPage';
 import MyBlogs, {loader as myBlogsLoader} from './Components/MyBlogs';
 import MyProducts, {loader as myProductsLoader} from './Components/MyProducts';
 import AddNewBlog, {loader as addEditBlogLoader} from './Components/AddNewBlogs';
+import MyProfile, {loader as myProfileLoader} from './Components/MyProfile';
+import AddNewProducts, {loader as addEditProductLoader} from './Components/AddNewProducts';
+import OrderHistory, {loader as orderHistoryLoader} from './Components/OrdersHistory';
+import IncomingOrder, {loader as incomingOrdersLoader}  from './Components/IncomingOrders';
+import Cart, {loader as cartLoader} from './Components/Cart';
+import Checkout, {loader as checkoutLoader} from './Components/Checkout';
 
 const router = createBrowserRouter([
   {
@@ -66,7 +72,36 @@ const router = createBrowserRouter([
         element:<AddNewBlog/>,
         loader:addEditBlogLoader
       },
-      
+      {
+        path:"/man-product/:type/:productId",
+        element:<AddNewProducts/>,
+        loader:addEditProductLoader
+      },
+      {
+        path:"/my-profile",
+        element:<MyProfile />,
+        loader:myProfileLoader
+      },
+      {
+        path:'/my-orders',
+        element:<OrderHistory/>,
+        loader:orderHistoryLoader
+      },
+      {
+        path:'/incoming-orders',
+        element:<IncomingOrder/>,
+        loader:incomingOrdersLoader
+      },
+      {
+        path:'/cart',
+        element:<Cart/>,
+        loader:cartLoader
+      },
+      {
+        path:'/checkout',
+        element:<Checkout/>,
+        loader: checkoutLoader
+      }
     ]
   }
 ]);
