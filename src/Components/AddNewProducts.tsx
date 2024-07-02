@@ -12,19 +12,17 @@ type FieldValues = {
     price:number;
 }
 
-export async function loader({params}:any):Promise<Product|undefined>{
+export async function loader({params}:any):Promise<Product|null>{
     const type = params.type;
     if(type === 'edit'){
         const {product}:{product:Product} = await productApi.readProduct(params.id);
         return product;
     }
-    else if(type === 'add'){
-        return undefined;
-    }
+    return null;
 }
 
 export default function AddNewProducts(){
-    const product = useLoaderData() as Product|undefined;
+    const product = useLoaderData() as Product|null;
     const {register, handleSubmit, formState} = useForm<FieldValues>({
         defaultValues:{
             name:product? product.name : "",

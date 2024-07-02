@@ -17,6 +17,7 @@ import OrderHistory, {loader as orderHistoryLoader} from './Components/OrdersHis
 import IncomingOrder, {loader as incomingOrdersLoader}  from './Components/IncomingOrders';
 import Cart, {loader as cartLoader} from './Components/Cart';
 import Checkout, {loader as checkoutLoader} from './Components/Checkout';
+import NewIn, { loader as newInLoader } from './Components/NewIn';
 
 const router = createBrowserRouter([
   {
@@ -101,6 +102,11 @@ const router = createBrowserRouter([
         path:'/checkout',
         element:<Checkout/>,
         loader: checkoutLoader
+      },
+      {
+        path:'/new-in',
+        element:<NewIn />,
+        loader:newInLoader
       }
     ]
   }

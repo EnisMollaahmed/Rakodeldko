@@ -26,12 +26,20 @@ class Cart{
     getElements():CartItem[]{
         return [...products];
     }
-    private getProducts(){
-        if(this.prods.length){
-            products.forEach(async (pr:CartItem)=>{
-                let {product} = await productApi.readProduct(pr.id) as {product:Product};
-                this.prods.push(product);
-            })   
+
+    async readProduct(pr:CartItem){
+        
+        let {product} = await productApi.readProduct(pr.id) as {product:Product};
+        this.prods.push(product);
+        
+    }
+
+    private async getProducts(){
+        if(this.prods.length === 0){
+            //products.forEach((pr:CartItem) => await this.readProduct(pr))   
+            for(let i:number = 0; i < products.length; i++){
+                await this.readProduct(products[i]);
+            }
         }
     }
     private prepareOrder(customerId:string, address:string, paymentMethod: 'cash' | 'card'):void{
@@ -40,16 +48,17 @@ class Cart{
             this.orders.push(new Order(customerId, prod.userId, prod.name, products.find(product=>product.id === prod.id)?.quantity as number, prod.price, address, paymentMethod));
         })
     }
-    makeOrder(customerId:string, address:string, paymentMethod:'card' | 'cash'){
+    async makeOrder(customerId:string, address:string, paymentMethod:'card' | 'cash'){
         this.prepareOrder(customerId, address, paymentMethod);
-        this.orders.forEach(async (order:Order)=>{
-            OrderDto.createOrder(order);
-        });
+        for (let index = 0; index < this.orders.length; index++) {
+            await OrderDto.createOrder(this.orders[index]);
+        }
     }
-    readProducts():Product[]{
+    async readProducts():Promise<Product[]>{
         if(this.prods.length === 0){
             this.getProducts();
         }
+        console.log(this.prods)
         return this.prods;
     }
     updateProducts(items:Product[]){

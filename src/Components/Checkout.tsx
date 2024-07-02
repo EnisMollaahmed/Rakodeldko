@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import cartApi, { CartItem } from '../services/cart-api';
 import { Product } from '../services/products-api';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { User } from '../services/clients-api';
 
-export function loader() : {products:Product[], cartItems:CartItem[], user:User}{
+export async function loader() : Promise<{products:Product[], cartItems:CartItem[], user:User}>{
     const cartItems:CartItem[] = cartApi.getElements();
-    const products:Product[] = cartApi.readProducts();
+    const products:Product[] = await cartApi.readProducts();
     const item:string = sessionStorage.getItem('act-user') as string;
     const user:User = JSON.parse(item);
     return {products, cartItems, user};
@@ -20,6 +20,7 @@ type CheckoutData = {
 
 export default function Checkout(){
     const {products, cartItems, user} = useLoaderData() as {products:Product[], cartItems:CartItem[], user:User};
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const { register, handleSubmit } = useForm<CheckoutData>({
         defaultValues:{
             address:"",
@@ -38,9 +39,12 @@ export default function Checkout(){
         return totalPrice;
     }
 
-    const handleDataSubmission = (data:CheckoutData) => {
-        cartApi.makeOrder(user.id as string, data.address, data.paymentMethod);
-        navigate('/')
+    const handleDataSubmission = async (data:CheckoutData) => {
+        console.log('ordering');
+        setIsLoading(true);
+        await cartApi.makeOrder(user.id as string, data.address, data.paymentMethod);
+        navigate('/');
+        setIsLoading(false);
     }
 
     return (
@@ -61,7 +65,7 @@ export default function Checkout(){
                 <label htmlFor="card">card</label>
                 <input type="radio" id="cash" {...register("paymentMethod")} value="cash"/>
                 <label htmlFor="cash">cash</label>
-                <button className='submit-btn' type='button'>Order</button>
+                <button className='submit-btn' type='submit' disabled={isLoading}>Order</button>
             </form>
             <section className='cost-information'>
                 <p className='cost-caption'>Total Cost</p>

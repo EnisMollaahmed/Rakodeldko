@@ -115,6 +115,8 @@ export default function Register(){
             })} placeholder='Repet Password' className='inp' autoComplete='new-password'/>
             <p>{errors['repeat-password']?.message}</p>
             <button type='submit' disabled={!(isDirty || isValid) || isSubmitting}>Submit</button>
+            <p className='or-capt'>or if you already have an account</p>
+            <button type='button' className='or-btn' onClick={()=>navigate('/log-in', { replace:true })}>Log In</button>
         </form>
     );
 }

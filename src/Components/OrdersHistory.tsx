@@ -7,7 +7,8 @@ import OrderWidget from "./OrderWidget";
 export async function loader() : Promise<{orders:Order[]}>{
     const item:string = sessionStorage.getItem('act-user') as string;
     const user:User = JSON.parse(item);
-    const orders:Order[] = await OrderDto.readFilteredOrders('clientId', user.id as string);
+    const data:Order[] = await OrderDto.readFilteredOrders('clientId', user.id as string);
+    const orders = data.reverse();
     return {orders};
 }
 

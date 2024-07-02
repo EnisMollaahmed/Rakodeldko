@@ -12,18 +12,19 @@ type FormData = {
     image:string
 }
 
-export async function loader({params}:any):Promise<Blog | undefined>{
+export async function loader({params}:any):Promise<Blog | null>{
     const type = params.type;
+    console.log(type)
     if(type === 'edit'){
         const blog:Blog = await blogsApi.readBlog(params.blogId);
         return blog;
-    }else{
-        return undefined;
     }
+    console.log('add is here')
+    return null;
 }
 
 export default function AddNewBlog(){
-    const blog = useLoaderData() as Blog|undefined;
+    const blog = useLoaderData() as Blog|null;
     const { register, handleSubmit, formState } = useForm<FormData>({
         defaultValues:{
             title: blog ? blog.title : "",

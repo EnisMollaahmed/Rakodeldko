@@ -4,15 +4,18 @@ import { Product } from "../services/products-api";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import CartWidget from "./CartWidget";
 
-export function loader() : {products:Product[], cartItems:CartItem[]}{
+export async function loader() : Promise<{products:Product[], cartItems:CartItem[]}>{
     const cartItems:CartItem[] = cartApi.getElements();
-    const products:Product[] = cartApi.readProducts();
+    console.log(cartItems);
+    const products:Product[] = await cartApi.readProducts();
+    console.log(products)
     return { products, cartItems };
 }
 
 export default function Cart(){
     const { products, cartItems } = useLoaderData() as {products:Product[], cartItems:CartItem[]};
     const [items, setItems] = useState<Product[]>(products);
+    console.log(items)
     const navigate = useNavigate();
     
     const handleRemove = (id:string) =>{
@@ -40,7 +43,7 @@ export default function Cart(){
                 cartApi.prods = items;
                 cartApi.updateProducts(items);
                 navigate('/checkout');
-            }}>Proceed to Checkout</button>
+            }} disabled={items.length === 0}>Proceed to Checkout</button>
         </section>
     );
 }

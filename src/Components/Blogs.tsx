@@ -32,7 +32,7 @@ export default function Blogs(){
         <section className='blogsContainer'>
             {
                 items.map((item:Blog)=>{
-                    return (item.id && item.post) && <BlogWidget key={item.id} id={item.id} image={item.image} title={item.title} shortDescription={item.shortDescription} post={item.post} isAdmin={user?.role === 'admin'}/>;
+                    return <BlogWidget key={item.id} id={item.id as string} image={item.image} title={item.title} shortDescription={item.shortDescription} post={item.post} isAdmin={user?.role === 'admin'}/>;
                 })
             }
             <button type='button' className='load-btn' hidden={pageNum === null} disabled={isLoading} onClick={handleLoadClick}>{isLoading ? 'Loading..':'Load More'}</button>

@@ -24,7 +24,7 @@ export default function MyBlogs(){
         <section className="my-blogs-container">
             <button className="add-blog-btn" type='button' onClick={()=>navigate('/man-blog/add/x')}>Add blog</button>
             {
-                blogs.length > 0 ? blogs.map((blog:Blog)=>{return blog.id && <BlogWidget id={blog.id} image={blog.image} title={blog.title} shortDescription={blog.shortDescription} post={blog.post}/>}) : <p>There are no any blogs posted yet</p>
+                blogs.length > 0 ? blogs.map((blog:Blog)=>{return blog.id && <BlogWidget key={blog.id} id={blog.id} image={blog.image} title={blog.title} shortDescription={blog.shortDescription} post={blog.post}/>}) : <p>There are no any blogs posted yet</p>
             }
         </section>
     );

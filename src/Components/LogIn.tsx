@@ -15,6 +15,7 @@ export async function loader() : Promise<{users:User[]}>{
 
 export default function LogIn(){
     const {users} = useLoaderData() as {users:User[]};
+    console.log(users);
     const navigate = useNavigate();
     const {register, handleSubmit, formState} = useForm<InputData>();
     const {errors} = formState;
@@ -47,9 +48,11 @@ export default function LogIn(){
                         message:'Password is required'
                     }
                 }
-            )}/>
+            )} placeholder='Password'/>
             <p className='error'>{errors.password?.message}</p>
             <button type='submit' className='btn'>Submit</button>
+            <p className='or-capt'>Or if you don't have an account</p>
+            <button type='button' className='reg-btn' onClick={()=>navigate('/register',{ replace:true })}>Register</button>
             {isInvalidUser && <p className='error'>Input data is not valid</p>}
         </form>
     );

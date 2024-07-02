@@ -20,12 +20,12 @@ export class Product{
 }
 
 class ProductDto{
-    async fetchAll(){
+    async fetchAll() : Promise<Product[]>{
         const data = await fetch(productEndpoint);
         if(!data.ok){
             throw Error('Error while feching data in ProductDto fetchAll method');
         }
-        const products = await data.json();
+        const products:Product[] = await data.json();
         return products;
     }
 
