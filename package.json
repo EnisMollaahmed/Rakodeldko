@@ -50,5 +50,9 @@
     "url": "EnisMollaahmed"
   },
   "author": "Enis Mollaahmed",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/uuid": "^10.0.0"
+  },
+  "proxy":"http://localhost:8080"
 }

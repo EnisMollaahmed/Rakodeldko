@@ -3,6 +3,7 @@ import {useForm} from 'react-hook-form';
 import blogsApi, { Blog } from '../services/blogs-api';
 import { useLoaderData } from 'react-router-dom';
 import { User } from '../services/clients-api';
+import {v4 as uuid} from 'uuid';
 
 type FormData = {
     title:string,
@@ -50,6 +51,7 @@ export default function AddNewBlog(){
             const user : User = JSON.parse(item);
             const date = new Date();
             const newBlog = new Blog(data.title, data.image,data.shortDescription, data.article, data.tags.split(" "), user.id as string, date.getMilliseconds());
+            newBlog.id = uuid();
             await blogsApi.createBlog(newBlog);
         }
     }

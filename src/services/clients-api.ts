@@ -1,5 +1,3 @@
-const userEndpoint:string = "http://localhost:8000/users";
-
 export class User{
     id?:string;
     name:string;
@@ -18,7 +16,7 @@ export class User{
 
 class UserDto{
     async fetchAll(){
-        const usersData = await fetch(userEndpoint);
+        const usersData = await fetch('/users/all');
         if(!usersData.ok){
             throw Error("Error while reading data from user endpoint in UserDto fetchAll method!");
         }
@@ -27,7 +25,7 @@ class UserDto{
     }
     
     async fetchUser(id:string){
-        const userData = await fetch(`${userEndpoint}/${id}`);
+        const userData = await fetch(`/users/${id}`);
         if(!userData.ok){
             throw Error("Error while reading data about specific user in UserDto fetchUser method!")
         }
@@ -36,7 +34,7 @@ class UserDto{
     }
 
     async createUser(user:User){
-        const writeData = await fetch(userEndpoint,{
+        const writeData = await fetch('/users/add',{
             method:"POST",
             headers:{
                 "Content-Type":"application/json",
@@ -50,7 +48,7 @@ class UserDto{
     }
 
     async updateUser(user:User, id:string){
-        const updateData = await fetch(`${userEndpoint}/${id}`,{
+        const updateData = await fetch(`/users/update/${id}`,{
             method:"PUT",
             headers:{
                 "Content-Type":"application/json"
@@ -64,7 +62,7 @@ class UserDto{
     }
 
     async deleteUser(id:string){
-        const deleteData = await fetch(`${userEndpoint}/${id}`,{
+        const deleteData = await fetch(`/users/delete/${id}`,{
             method:"DELETE"
         });
         if(!deleteData.ok){

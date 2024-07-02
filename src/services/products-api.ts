@@ -1,5 +1,3 @@
-const productEndpoint = 'http://localhost:8000/products';
-
 export class Product{
     id?:string;
     name:string;
@@ -21,7 +19,7 @@ export class Product{
 
 class ProductDto{
     async fetchAll() : Promise<Product[]>{
-        const data = await fetch(productEndpoint);
+        const data = await fetch('/products/all');
         if(!data.ok){
             throw Error('Error while feching data in ProductDto fetchAll method');
         }
@@ -30,7 +28,7 @@ class ProductDto{
     }
 
     async fetchSpecificAmount(page:number):Promise<{products:Product[], nextPage:number|null}>{
-        const data = await fetch(`${productEndpoint}?_page=${page}`);
+        const data = await fetch(`/products/page/${page}`);
         if(!data.ok){
             throw Error('Error while feching data in ProductDto fetchSpecificAmount method');
         }
@@ -41,7 +39,7 @@ class ProductDto{
     }
 
     async readFilteredData(userId:string):Promise<Product[]>{
-        const data = await fetch(`${productEndpoint}?userId=${userId}`);
+        const data = await fetch(`/products/userId-${userId}`);
         if(!data.ok){
             throw Error('Error while reading products in ProductDto readFilteredData method');
         }
@@ -50,7 +48,7 @@ class ProductDto{
     }
 
     async createProduct(product:Product){
-        const data= await fetch(productEndpoint, {
+        const data= await fetch('/products/add', {
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
@@ -64,7 +62,7 @@ class ProductDto{
         return products; 
     }
     async updateProduct(product:Product, id:string){
-        const data = await fetch(`${productEndpoint}/${id}`, {
+        const data = await fetch(`/products/${id}`, {
             method:'PUT',
             headers:{
                 "Content-Type":"application/json"
@@ -78,7 +76,7 @@ class ProductDto{
         return products; 
     }
     async deleteProduct(id:string){
-        const data = await fetch(`${productEndpoint}/${id}`,{
+        const data = await fetch(`/products/delete/${id}`,{
             method:"DELETE"
         });
         if(!data.ok){
@@ -88,7 +86,7 @@ class ProductDto{
         return product;
     }
     async readProduct(id:string):Promise<{product:Product}>{
-        const data = await fetch(`${productEndpoint}/${id}`);
+        const data = await fetch(`/products/${id}`);
         const product = await data.json();
         return {product};
     }

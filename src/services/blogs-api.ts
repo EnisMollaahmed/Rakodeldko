@@ -1,5 +1,3 @@
-const blogsEndpoint = 'http://localhost:8000/blogs';
-
 export class Blog{
     id?:string
     title:string;
@@ -22,7 +20,7 @@ export class Blog{
 
 class BlogApi{
     async readAll() : Promise<Blog[]>{
-        const data:Response = await fetch(blogsEndpoint);
+        const data:Response = await fetch('/blogs/all');
         if(data.status !== 200){
             throw Error('Error while reading blogs in readAll method');
         }
@@ -30,7 +28,7 @@ class BlogApi{
         return blogs;
     }
     async readSpecificCountBlogs(page:number):Promise<{blogs:Blog[], nextPage:number|null}>{
-        const data:Response = await fetch(`${blogsEndpoint}?_page=${page}`);
+        const data:Response = await fetch(`/blogs/page/${page}`);
         if(!data.ok){
             throw Error('Error while reading blogs in readSpecificCountBlogs method');
         }
@@ -40,7 +38,7 @@ class BlogApi{
         return {blogs, nextPage};
     }
     async readBlog(id:string):Promise<Blog>{
-        const data:Response = await fetch(`${blogsEndpoint}/${id}`);
+        const data:Response = await fetch(`/blogs/${id}`);
         if(!data.ok){
             throw Error('Error while reading blogs in readBlog method');
         }
@@ -49,7 +47,7 @@ class BlogApi{
     }
 
     async readFilteredBlogs(ownerId:string):Promise<Blog[]>{
-        const data:Response = await fetch(`${blogsEndpoint}?ownerId=${ownerId}`);
+        const data:Response = await fetch(`/blogs/ownerId-${ownerId}`);
         if(!data.ok){
             throw Error('Error while reading blogs in readFilteredBlogs method');
         }
@@ -58,7 +56,7 @@ class BlogApi{
     }
 
     async createBlog(blog:Blog):Promise<Response>{
-        const data:Response = await fetch(blogsEndpoint, {
+        const data:Response = await fetch('/blogs/add', {
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
@@ -71,7 +69,7 @@ class BlogApi{
         return await data.json();
     }
     async updateBlog(id:string, blog:Blog):Promise<Blog>{
-        const data:Response = await fetch(`${blogsEndpoint}/${id}`, {
+        const data:Response = await fetch(`/blogs/${id}`, {
             method:"PUT",
             headers:{
                 "Content-Type":"application/json"
@@ -84,7 +82,7 @@ class BlogApi{
         return await data.json();
     }
     async deleteBlog(id:string):Promise<Response>{
-        const data:Response = await fetch(`${blogsEndpoint}/${id}`,{
+        const data:Response = await fetch(`/blogs/delete/${id}`,{
             method:"DELETE"
         });
         if(!data.ok){

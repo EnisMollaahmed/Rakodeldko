@@ -1,8 +1,5 @@
-const ordersEndpoint = 'http://localhost:8000/orders';
-
-
 export class Order{
-    id?:string;
+    id:string;
     clientId:string;
     craftsmanId:string;
     productName:string;
@@ -11,7 +8,7 @@ export class Order{
     paymentMethod: "cash" | "card";
     status: 'pending'|'finished';
     address:string;
-    constructor(clientId:string, craftsmanId:string, productName:string,quantity:number, price:number, address:string, paymentMethod: 'cash' | 'card'){
+    constructor(clientId:string, craftsmanId:string, productName:string,quantity:number, price:number, address:string, paymentMethod: 'cash' | 'card', id:string){
         this.clientId = clientId;
         this.craftsmanId = craftsmanId;
         this.productName = productName;
@@ -20,12 +17,13 @@ export class Order{
         this.address = address;
         this.paymentMethod = paymentMethod;
         this.status = 'pending';
+        this.id = id;
     }
 }
 
 export class OrderDto{
     static async readAll():Promise<Order[]>{
-        const data:Response = await fetch(ordersEndpoint);
+        const data:Response = await fetch('/orders/all');
         if(!data.ok){
             throw Error ('error while reading data in readAll method from class OrderDto');
         }
@@ -33,7 +31,7 @@ export class OrderDto{
         return orders;
     }
     static async readSpecificOrder(id:string):Promise<Order>{
-        const data:Response = await fetch(`${ordersEndpoint}/${id}`);
+        const data:Response = await fetch(`/orders/${id}`);
         if(!data.ok){
             throw Error('error while reading data in readSpecificOrder from class OrderDto');
         }
@@ -41,7 +39,7 @@ export class OrderDto{
         return order
     }
     static async readFilteredOrders(property:string, value:string|number):Promise<Order[]>{
-        const data:Response = await fetch(`${ordersEndpoint}?${property}=${value}`);
+        const data:Response = await fetch(`/orders/${property}-${value}`);
         if(!data.ok){
             throw Error('error while reading data in readFilteredOrders from class OrderDto');
         }
@@ -49,7 +47,7 @@ export class OrderDto{
         return orders;
     }
     static async createOrder(order:Order):Promise<Response>{
-        const data = await fetch(ordersEndpoint, {
+        const data = await fetch('/orders/add', {
             method:"POST",
             headers:{
                 "Content-Type":"application/json",
@@ -62,8 +60,8 @@ export class OrderDto{
         return await data.json();
     }
     static async updateOrder(order:Order):Promise<Response>{
-        const data = await fetch(`${ordersEndpoint}/${order.id}`,{
-            method:"POST",
+        const data = await fetch(`/orders/${order.id}`,{
+            method:"PUT",
             headers:{
                 "Content-Type":"application/json"
             },
@@ -75,8 +73,8 @@ export class OrderDto{
         return await data.json();
     }
     static async deleteOrder(id:string):Promise<Response>{
-        const data = await fetch(`${ordersEndpoint}/${id}`,{
-            method:"POST"
+        const data = await fetch(`/orders/delete/${id}`,{
+            method:"DELETE"
         });
         if(!data.ok){
             throw Error('Error while deleting data in deleteOrder methdod');
