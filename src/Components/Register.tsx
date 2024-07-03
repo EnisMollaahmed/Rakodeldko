@@ -3,7 +3,9 @@ import { useForm } from 'react-hook-form';
 import userDto from '../services/clients-api';
 import {useLoaderData, useNavigate} from 'react-router-dom';
 import { User } from '../services/clients-api';
-import {v4 as uuid} from 'uuid'
+import { generateHexId } from '../services/utility';
+
+
 
 type UserData = {
     name:string,
@@ -31,7 +33,7 @@ export default function Register(){
     const onSubmission = (data:UserData) =>{
         console.log(data);
         const user = new User(data.name, data.username, data.email, data.password, 'user');
-        user.id = uuid();
+        user.id = generateHexId();
         userDto.createUser(user);
         sessionStorage.setItem('act-user',JSON.stringify(user));
         navigate('..',{replace:true})

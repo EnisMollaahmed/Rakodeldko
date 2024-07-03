@@ -34,6 +34,7 @@ class UserDto{
     }
 
     async createUser(user:User){
+        console.log('create user',user);
         const writeData = await fetch('/users/add',{
             method:"POST",
             headers:{
@@ -41,6 +42,7 @@ class UserDto{
             },
             body:JSON.stringify(user),
         });
+        console.log(writeData);
         if(!writeData.ok){
             throw Error("Error while writing the new user in UserDto writeUser method")
         }

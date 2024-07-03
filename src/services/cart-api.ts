@@ -2,7 +2,7 @@ import productApi from "./products-api";
 import{ Product } from "./products-api";
 import {Order} from './order-api';
 import { OrderDto } from "./order-api";
-import {v4 as uuid} from 'uuid';
+import { generateHexId } from "./utility";
 
 export type CartItem = {
     id:string,
@@ -46,7 +46,7 @@ class Cart{
     private prepareOrder(customerId:string, address:string, paymentMethod: 'cash' | 'card'):void{
         this.getProducts();
         this.prods.forEach((prod:Product)=>{
-            this.orders.push(new Order(customerId, prod.userId, prod.name, products.find(product=>product.id === prod.id)?.quantity as number, prod.price, address, paymentMethod, uuid()));
+            this.orders.push(new Order(customerId, prod.userId, prod.name, products.find(product=>product.id === prod.id)?.quantity as number, prod.price, address, paymentMethod, generateHexId()));
         })
     }
     async makeOrder(customerId:string, address:string, paymentMethod:'card' | 'cash'){

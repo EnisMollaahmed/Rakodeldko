@@ -3,7 +3,7 @@ import {useForm} from 'react-hook-form';
 import productApi, { Product } from "../services/products-api";
 import { useLoaderData } from "react-router-dom";
 import { User } from '../services/clients-api';
-import {v4 as uuid} from 'uuid';
+import { generateHexId } from "../services/utility";
 
 type FieldValues = {
     name:string;
@@ -49,7 +49,7 @@ export default function AddNewProducts(){
             const item = sessionStorage.getItem('act-user') as string;
             const user:User = JSON.parse(item);
             const newProduct = new Product(data.name, data.image, data.description, data.tags.split(" "), data.price, user.id as string);
-            newProduct.id = uuid()
+            newProduct.id = generateHexId();
             await productApi.createProduct(newProduct);
         }
     }

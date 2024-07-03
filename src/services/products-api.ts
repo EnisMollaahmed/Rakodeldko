@@ -33,13 +33,16 @@ class ProductDto{
             throw Error('Error while feching data in ProductDto fetchSpecificAmount method');
         }
         const neededData = await data.json();
-        const products:Product[] = neededData.data;
+        console.log(neededData)
+        const products:Product[] = neededData.toReturn;
+        console.log(products)
         const nextPage:number|null = neededData.next;
+        console.log(nextPage)
         return {products, nextPage};
     }
 
     async readFilteredData(userId:string):Promise<Product[]>{
-        const data = await fetch(`/products/userId-${userId}`);
+        const data = await fetch(`/products/filter/userId-${userId}`);
         if(!data.ok){
             throw Error('Error while reading products in ProductDto readFilteredData method');
         }
@@ -86,7 +89,8 @@ class ProductDto{
         return product;
     }
     async readProduct(id:string):Promise<{product:Product}>{
-        const data = await fetch(`/products/${id}`);
+        const data = await fetch(`products/${id}`);
+        console.log(data)
         const product = await data.json();
         return {product};
     }

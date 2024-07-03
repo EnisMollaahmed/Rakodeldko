@@ -33,21 +33,25 @@ class BlogApi{
             throw Error('Error while reading blogs in readSpecificCountBlogs method');
         }
         const pagesData= await data.json();
-        const blogs:Blog[] = pagesData.data;
+        const blogs:Blog[] = pagesData.toReturn;
+        console.log(blogs)
         const nextPage : number | null = pagesData.next;
+        console.log(nextPage)
         return {blogs, nextPage};
     }
     async readBlog(id:string):Promise<Blog>{
         const data:Response = await fetch(`/blogs/${id}`);
+        console.log(data)
         if(!data.ok){
             throw Error('Error while reading blogs in readBlog method');
         }
         const blog:Blog = await data.json();
+        console.log(blog)
         return blog;
     }
 
     async readFilteredBlogs(ownerId:string):Promise<Blog[]>{
-        const data:Response = await fetch(`/blogs/ownerId-${ownerId}`);
+        const data:Response = await fetch(`/blogs/filter/ownerId-${ownerId}`);
         if(!data.ok){
             throw Error('Error while reading blogs in readFilteredBlogs method');
         }

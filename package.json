@@ -52,7 +52,8 @@
   "author": "Enis Mollaahmed",
   "license": "ISC",
   "devDependencies": {
-    "@types/uuid": "^10.0.0"
+    "@types/uuid": "^10.0.0",
+    "crypto": "^1.0.1"
   },
-  "proxy":"http://localhost:8080"
+  "proxy": "http://localhost:8080/"
 }

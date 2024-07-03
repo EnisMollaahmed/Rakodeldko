@@ -16,7 +16,7 @@ export default function NewIn() {
     return (
         <section className='new-products-container'>
             {
-                products.map((product:Product) => <ProductWidget isAdmin={user ? user.role === 'admin':false} isRegistered={user ? true : false} isOwned={user ? user.id === product.userId : false} name={product.name} image={product.image} id={product.id as string}/>)
+                products.map((product:Product) => <ProductWidget key={product.id} isAdmin={user ? user.role === 'admin':false} isRegistered={user ? true : false} isOwned={user ? user.id === product.userId : false} name={product.name} image={product.image} id={product.id as string}/>)
             }
         </section>
     );

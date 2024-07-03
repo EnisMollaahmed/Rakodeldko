@@ -39,7 +39,7 @@ export class OrderDto{
         return order
     }
     static async readFilteredOrders(property:string, value:string|number):Promise<Order[]>{
-        const data:Response = await fetch(`/orders/${property}-${value}`);
+        const data:Response = await fetch(`/orders/filter/${property}-${value}`);
         if(!data.ok){
             throw Error('error while reading data in readFilteredOrders from class OrderDto');
         }
