@@ -28,6 +28,7 @@ export default function ProductWidget({name, image, id, isRegistered = false, is
             navigate('/log-in');
         }
     }
+    console.log('id',id);
     return (
         <section className='product-widget'>
             <img className='image' src={image} alt={`product:{name}`}/>

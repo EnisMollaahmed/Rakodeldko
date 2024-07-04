@@ -9,6 +9,7 @@ export async function loader({params}:any):Promise<{products:Product[]}>{
     const user: User = JSON.parse(item);
     if (item && user.id){
         const products: Product[]= await productApi.readFilteredData(user.id);
+        console.log(products)
         return {products}
     }
     else{
@@ -24,7 +25,7 @@ export default function MyProducts(){
         <section className='products-container'>
             <button className='add-prod-btn' type='button' onClick={()=>navigate('/man-product/add/x')}>Add product</button>
             {
-                products.length > 0 ? products.map((product:Product)=>{ return <ProductWidget isRegistered={true} key={product.id} name={product.name} image={product.image} id={product.id as string} isOwned={true}/>}) : <p>There is no any products</p>
+                products.length > 0 ? products.map((product)=>{ console.log('here iddddd',product); return <ProductWidget isRegistered={true} key={product.id} name={product.name} image={product.image} id={product.id as string} isOwned={true}/>}) : <p>There is no any products</p>
             }
         </section>
     );

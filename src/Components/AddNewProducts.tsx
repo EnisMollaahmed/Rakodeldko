@@ -1,7 +1,7 @@
 import React from "react";
 import {useForm} from 'react-hook-form';
 import productApi, { Product } from "../services/products-api";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, Navigate, useNavigate } from "react-router-dom";
 import { User } from '../services/clients-api';
 import { generateHexId } from "../services/utility";
 
@@ -15,16 +15,19 @@ type FieldValues = {
 
 export async function loader({params}:any):Promise<Product|null>{
     const type = params.type;
+    const id = params.productId;
+    console.log(id , "   ", type);
     if(type === 'edit'){
-        const {product}:{product:Product} = await productApi.readProduct(params.id);
+        const {product}:{product:Product} = await productApi.readProduct(params.productId);
         return product;
     }
     return null;
 }
 
 export default function AddNewProducts(){
+    const navigate = useNavigate();
     const product = useLoaderData() as Product|null;
-    const {register, handleSubmit, formState} = useForm<FieldValues>({
+    const {register, handleSubmit, formState, reset} = useForm<FieldValues>({
         defaultValues:{
             name:product? product.name : "",
             image:product? product.image : "",
@@ -44,6 +47,7 @@ export default function AddNewProducts(){
             product.tags = data.tags.split(' ');
             product.price = data.price;
             await productApi.updateProduct(product, product.id as string);
+            navigate(-1);
         }
         else{
             const item = sessionStorage.getItem('act-user') as string;
@@ -52,6 +56,7 @@ export default function AddNewProducts(){
             newProduct.id = generateHexId();
             await productApi.createProduct(newProduct);
         }
+        reset();
     }
 
     return (

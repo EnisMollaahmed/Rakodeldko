@@ -1,7 +1,7 @@
 import React from 'react';
 import {useForm} from 'react-hook-form';
 import blogsApi, { Blog } from '../services/blogs-api';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, Navigate, useNavigate } from 'react-router-dom';
 import { User } from '../services/clients-api';
 import { generateHexId } from '../services/utility';
 
@@ -25,8 +25,9 @@ export async function loader({params}:any):Promise<Blog | null>{
 }
 
 export default function AddNewBlog(){
+    const navigate = useNavigate();
     const blog = useLoaderData() as Blog|null;
-    const { register, handleSubmit, formState } = useForm<FormData>({
+    const { register, handleSubmit, formState, reset } = useForm<FormData>({
         defaultValues:{
             title: blog ? blog.title : "",
             shortDescription:blog? blog.shortDescription : "",
@@ -45,6 +46,7 @@ export default function AddNewBlog(){
             blog.article = data.article;
             blog.tags = data.tags.split(" ");
             await blogsApi.updateBlog(blog.id as string, blog);
+            navigate(-1);
         }
         else{
             const item = sessionStorage.getItem('act-user') as string;
@@ -54,6 +56,7 @@ export default function AddNewBlog(){
             newBlog.id = generateHexId();
             await blogsApi.createBlog(newBlog);
         }
+        reset();
     }
 
     return (
