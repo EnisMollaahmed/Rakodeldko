@@ -33,10 +33,10 @@ export default function ProductWidget({name, image, id, isRegistered = false, is
         <section className='product-widget'>
             <img className='image' src={image} alt={`product:{name}`}/>
             <p className='prod-name'>{name}</p>
-            <button type='button' onClick={()=>navigate(`/product/${id}`)}>View</button>
-            {!isOwned && <button className="cart-btn" type='button' onClick={handleAddToCart}>Add to Cart</button>}
-            {isOwned && <button className="edit-btn" type='button' onClick={()=>navigate(`/man-product/edit/${id}`)}>Edit</button>}
-            {(isOwned || isAdmin) && <button className="delete-btn" type="button" onClick={handleDelete}>Delete</button>}
+            <button type='button' className="prod-btn" onClick={()=>navigate(`/product/${id}`)}>View</button>
+            {!isOwned && <button className="cart-btn prod-btn" type='button' onClick={handleAddToCart}>Add to Cart</button>}
+            {isOwned && <button className="edit-btn prod-btn" type='button' onClick={()=>navigate(`/man-product/edit/${id}`)}>Edit</button>}
+            {(isOwned || isAdmin) && <button className="delete-btn prod-btn" type="button" onClick={handleDelete}>Delete</button>}
 
         </section>
     );

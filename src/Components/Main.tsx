@@ -4,12 +4,7 @@ import { User } from '../services/clients-api';
 
 export default function Main(){
     const navigate = useNavigate();
-    const linkStyling = ({ isActive, isPending, isTransitioning }:any) =>
-        [
-          isPending ? "pending" : "",
-          isActive ? "active" : "",
-          isTransitioning ? "transitioning" : "",
-        ].join(" ");
+    const linkStyling = ({ isActive, isPending}:any) => isActive ? 'active':'pending'
 
     const item = sessionStorage.getItem('act-user');
     let user:User|undefined = undefined;
@@ -25,8 +20,8 @@ export default function Main(){
     return (
         <>
             <header className='header-container'>
-                <h1 className='name-capt'>Rakedelko</h1>
-                {item && <p>{user?.name}</p>}
+                <h1 className='name-capt'>Rakodelko</h1>
+                {item && <p className='user-name-capt'>{user?.name}</p>}
                 <nav className='nav-container'>
                     <NavLink className={linkStyling} to='/'>Home</NavLink>
                     <NavLink className={linkStyling} to='/shop'>Shop</NavLink>
@@ -37,7 +32,9 @@ export default function Main(){
                     {item && <NavLink className={linkStyling} to='/my-products'>My Products</NavLink>}
                     {item && <NavLink className={linkStyling} to='/my-blogs'>My Blogs</NavLink>}
                     {item && <NavLink className={linkStyling} to='/my-profile'>My Profile</NavLink>}
-                    {user && <NavLink className={linkStyling} to='/cart'><img src='https://t3.ftcdn.net/jpg/03/14/84/68/360_F_314846831_5jJsC7Us9obgwMjRDqFhs04dodzvnZvi.jpg' alt='shopping cart'/></NavLink>}
+                    {item && <NavLink className={linkStyling} to='/my-orders'>Order History</NavLink>}
+                    {item && <NavLink className={linkStyling} to='/incoming-orders'>Incoming Orders</NavLink>}
+                    {user && <NavLink className={linkStyling} to='/cart'><img className='cart' src='https://t3.ftcdn.net/jpg/03/14/84/68/360_F_314846831_5jJsC7Us9obgwMjRDqFhs04dodzvnZvi.jpg' alt='shopping cart'/></NavLink>}
                     {user && <button className='exit-btn' onClick={handleExit}>Exit</button>}
                 </nav>
             </header>

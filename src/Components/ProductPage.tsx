@@ -31,6 +31,7 @@ export default function ProductPage(){
         if(user){
             const id:string = product.id as string;
             cartApi.addToCart({id, quantity});
+            navigate(-1);
         }
         else{
             navigate('/log-in');

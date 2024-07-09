@@ -9,7 +9,6 @@ export type CartItem = {
     quantity:number
 }
 
-let products:CartItem[] = [];
 
 class Cart{
     orders:Order[];
@@ -19,13 +18,26 @@ class Cart{
         this.prods = [];
     }
     addToCart({id, quantity}:{id:string, quantity:number}):void{
-        products.push({id, quantity});
+        localStorage.setItem(id, JSON.stringify(quantity));
     }
     removeFromCart(id:string):void{
-        products = products.filter((product:CartItem)=>product.id !== id);
+        const filteredObjects:CartItem[] = [];
+        Object.keys(localStorage).forEach(
+            (key) => {
+                if(key !== id){
+                    filteredObjects.push({id:key, quantity:JSON.parse(localStorage.getItem(key) as string)});
+                }
+            }
+        )
+        localStorage.clear();
+        filteredObjects.map(obj => this.addToCart(obj));
     }
     getElements():CartItem[]{
-        return [...products];
+        const products:CartItem[] = [];
+        Object.keys(localStorage).forEach((key) => {
+            products.push({id:key, quantity:JSON.parse(localStorage.getItem(key) as string)});
+        })
+        return products;
     }
 
     async readProduct(pr:CartItem){
@@ -36,8 +48,10 @@ class Cart{
     }
 
     private async getProducts(){
-        if(this.prods.length === 0){
+        if(this.prods.length === 0 || this.prods.length !== localStorage.length){
             //products.forEach((pr:CartItem) => await this.readProduct(pr))   
+            const products:CartItem[] = this.getElements();
+            this.prods = [];
             for(let i:number = 0; i < products.length; i++){
                 await this.readProduct(products[i]);
             }
@@ -45,12 +59,14 @@ class Cart{
     }
     private prepareOrder(customerId:string, address:string, paymentMethod: 'cash' | 'card'):void{
         this.getProducts();
+        const products:CartItem[] = this.getElements();
         this.prods.forEach((prod:Product)=>{
             this.orders.push(new Order(customerId, prod.userId, prod.name, products.find(product=>product.id === prod.id)?.quantity as number, prod.price, address, paymentMethod, generateHexId()));
         })
     }
     async makeOrder(customerId:string, address:string, paymentMethod:'card' | 'cash'){
         this.prepareOrder(customerId, address, paymentMethod);
+        localStorage.clear();
         for (let index = 0; index < this.orders.length; index++) {
             await OrderDto.createOrder(this.orders[index]);
         }
@@ -63,7 +79,13 @@ class Cart{
         return this.prods;
     }
     updateProducts(items:Product[]){
-        products = products.filter((product:CartItem)=>items.find(item=> item.id === product.id) !== undefined)
+        //products = products.filter((product:CartItem)=>items.find(item=> item.id === product.id) !== undefined);
+        const keys:string[] = Object.keys(localStorage);
+        keys.forEach((key) => {
+            if(items.find(item => item.id === key) === undefined){
+                localStorage.removeItem(key);
+            }
+        })
     }
 }
 

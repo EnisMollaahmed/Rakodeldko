@@ -60,7 +60,7 @@ export default function Shop(){
 
     return (
         <section className='market-container'>
-            <form noValidate onSubmit={handleSubmit(handleFilters)}>
+            <form noValidate className='filter-container' onSubmit={handleSubmit(handleFilters)}>
                 <label htmlFor='filt-inp'  className='label'>Enter the tags separated by spaces</label>
                 <input id='filt-inp' type='text' className='filter-inp' {...register('filterInp', {
                     minLength:{
